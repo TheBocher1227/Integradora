@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { NavbarComponent } from '../components/navbar/navbar.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-sensores',

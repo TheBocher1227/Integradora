@@ -8,7 +8,7 @@ import { SearchingComponent } from './components/searching/searching.component';
 import { CodigoComponent } from './components/codigo/codigo.component';
 import { loginGuard } from './guards/login.guard';
 import { authGuard } from './guards/auth.guard';
-import { SensoresComponent } from './sensores/sensores.component';
+import { SensoresComponent } from './components/sensores/sensores.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -22,8 +22,10 @@ export const routes: Routes = [
     { path: 'juego', loadComponent: () => import('./components/juego/juego.component').then(j => j.JuegoComponent) },
     { path: 'navbar', loadComponent: () => import("./components/navbar/navbar.component").then(n => n.NavbarComponent),
         children:[
+            { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadComponent: () => import("./components/dashboard/dashboard.component").then(n => n.DashboardComponent),},
-            { path: 'sensores', loadComponent: () => import("./sensores/sensores.component").then(n => n.SensoresComponent),}
+            { path: 'sensores', loadComponent: () => import("./components/sensores/sensores.component").then(n => n.SensoresComponent),},
+            { path: 'me', loadComponent: () => import("./components/me/me.component").then(n => n.MeComponent),}
         ]
     },
     { path: '**', component: NotfoundComponent},
