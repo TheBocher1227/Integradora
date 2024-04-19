@@ -3,6 +3,7 @@
 
 use App\Http\Controllers\BarcosController;
 use App\Http\Controllers\JuegosController;
+use App\Http\Controllers\SensoresController;
 use App\Mail\ValidatorEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -80,7 +81,9 @@ Route::group([
 
 
 
-
+Route::get('obtenerestaciones',[SensoresController::class,'obtenerestaciones']);
+Route::post('obtenerRegistrosPorEstacion/{id}',[SensoresController::class,'obtenerRegistrosPorEstacion']);
+Route::post('guardarRelacionEstacion',[SensoresController::class,'guardarRelacionEstacion']);
 
 
 

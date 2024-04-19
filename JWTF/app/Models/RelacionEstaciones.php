@@ -5,16 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Estadistica extends Model
+class RelacionEstaciones extends Model
 {
     use HasFactory;
-
-    protected $table = 'estadisticas';
-    public $timestamps = false;
+    protected $table = 'relacionestaciones';
+    
 
     protected $fillable=[
         'user_id',
-        'partida',
-        'rival_id',
+        'estacion_id'
     ];
 }

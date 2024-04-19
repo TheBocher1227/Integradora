@@ -20,10 +20,10 @@ class NewSensores
      * @return void
      */
 
-     public $sensor;
-    public function __construct($Sensor)
+     public $selogsor;
+    public function __construct($log)
     {
-        $this->sensor = $Sensor;
+        $this->log = $log;
     }
 
     /**
