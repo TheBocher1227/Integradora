@@ -94,10 +94,10 @@ return [
         ],
 
         'mongodb' => [
-            'driver' => 'mongodb',
-            'dsn' => env('DB_URI', 'mongodb+srv://username:password@<atlas-cluster-uri>/myappdb?retryWrites=true&w=majority'),
-            'database' => 'sensores',
-        ]
+            'driver'   => 'mongodb',
+            'dsn'      => env('DB_URI', 'mongodb://3.14.83.197:27117'),
+            'database' => env('MONGODB_DATABASE', 'sensores'),
+        ],
         
 
     ],

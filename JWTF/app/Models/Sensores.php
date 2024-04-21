@@ -9,7 +9,20 @@ class Sensores extends Model
 {
     use HasFactory;
     protected $connection ='mongodb';
-    protected $colecction = 'data_sensores';
+    protected $collection = 'data-sensores';
 
     public $timestamps = false;
+
+    protected $fillable =[
+     'nombre',
+	'unidad'.
+	'clave',
+	'descripcion',
+	'isf'
+    ];
+    
+
+
+
+    
 }

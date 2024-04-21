@@ -14,8 +14,10 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "mongodb/mongodb": "^1.12",
+        "nesbot/carbon": "^2.72",
         "php-open-source-saver/jwt-auth": "^2.1",
-        "pusher/pusher-php-server": "^7.2"
+        "pusher/pusher-php-server": "^7.2",
+        "react/promise": "2.7"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

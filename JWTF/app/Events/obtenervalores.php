@@ -10,7 +10,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class NewSensores implements ShouldBroadcast
+class obtenervalores implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -18,12 +18,13 @@ class NewSensores implements ShouldBroadcast
      * Create a new event instance.
      *
      * @return void
+     * 
      */
 
-     public $selogsor;
-    public function __construct($log)
+    public $valor;
+    public function __construct($valor)
     {
-        $this->log = $log;
+        $this->valor = $valor;
     }
 
     /**
@@ -33,6 +34,6 @@ class NewSensores implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new channel('sensores');
+        return new Channel('valores');
     }
 }
