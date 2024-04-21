@@ -15,22 +15,9 @@ export class DashboardComponent implements OnInit {
 
   constructor( private us: UserService ) {}
 
-  public user: User = {
-    id: 0,
-    email: "",
-    name: "",
-    codigoVerificadO: false,
-    created_at: "",
-    is_active: false,
-    updated_at: ""
-  }
 
   ngOnInit(): void {
-    this.us.getData().subscribe(
-      (response) => {
-        this.user = response
-      }
-    )
+    
   }
 
 }

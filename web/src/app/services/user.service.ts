@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { api } from '../Interfaces/enviroment';
 import { Observable } from 'rxjs';
@@ -14,8 +14,11 @@ export class UserService {
   private dataURL = `${api}/api/user/me`
   private registroURL = `${api}/api/user/registrobatalla/`
 
-  getData(): Observable<User> {
-    return this.http.get<User>(this.dataURL)
+  getData(token:string): Observable<User> {
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.get<User>(this.dataURL , { headers})
   }
 
   // getBatallas(): Observable<>

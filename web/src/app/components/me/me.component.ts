@@ -14,26 +14,30 @@ export class MeComponent implements OnInit {
 
   constructor( private us: UserService , private router: Router) {}
 
-  public user: User = {
-    id: 0,
-    email: "",
-    name: "",
-    codigoVerificadO: false,
-    created_at: "",
-    is_active: false,
-    updated_at: ""
-  }
+  user: User | null = null;
 
   ngOnInit(): void {
-    this.us.getData().subscribe(
-      (response) => {
-        this.user = response
-        console.log(response);
-      }
-    )
+    this.getUserData();
+    
   }
   Logout() {
     this.router.navigate(['/login']);
     }
+
+
+    getUserData() {
+      const token = localStorage.getItem('token');
+      if (token) {
+        this.us.getData(token).subscribe(
+          response => {
+            this.user = response; // Accede a la propiedad 'user' de la respuesta
+            
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+    }  
 
 }
