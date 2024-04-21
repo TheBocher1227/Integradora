@@ -20,7 +20,7 @@ class NewSensores implements ShouldBroadcast
      * @return void
      */
 
-     public $selogsor;
+     public $log;
     public function __construct($log)
     {
         $this->log = $log;

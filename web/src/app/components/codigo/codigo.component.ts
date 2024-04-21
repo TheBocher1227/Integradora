@@ -19,6 +19,7 @@ export class CodigoComponent {
   public codigo: string = ""
   public message: string|null = ""
   public errorMsg: string|null = ""
+  public mensaje6: string|null = ""
 
   verificar() {
     this.ls.verificarCodigo(this.codigo).subscribe(
@@ -31,6 +32,7 @@ export class CodigoComponent {
         }, 1500)
       }, (error) => {
         this.errorMsg = error.error
+        this.errorMsg = error.error.verificacion[0]
       }
     )
   }

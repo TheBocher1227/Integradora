@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Events\NewSensores;
 use App\Events\NuevaReparacion;
 use App\Events\obtenervalores;
 use Illuminate\Http\Request;
+use App\Events\Event;
 use Carbon\Carbon;
 use Exception;
 use App\Models\Sensores;
@@ -33,6 +35,8 @@ class SensoresController extends Controller
                 $log->clave = $sensorData['clave'];
                 $log->descripcion = $sensorData['descripcion'];
                 $log->isf = $sensorData['isf']; 
+
+                event(new NewSensores($log));
                 $log->save();
             }
     
