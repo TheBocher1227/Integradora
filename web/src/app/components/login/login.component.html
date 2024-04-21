@@ -6,9 +6,9 @@
     <title>Iniciar sesión</title>
 </head>
 <div class="alert alert-danger fade show" role="alert" *ngIf="errorMsg">
-    {{ errorMsg }}
+   <h3>Por favor verifica tus credenciales</h3>
 </div>
-<div class="alert alert-danger fade show" role="alert" *ngIf="errorMsg">
+<div class="alert alert-danger fade show" role="alert" *ngIf="error">
     {{ error }}
 </div>
 <body>
