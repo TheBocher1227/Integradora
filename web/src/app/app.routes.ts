@@ -20,13 +20,15 @@ export const routes: Routes = [
     { path: 'estadisticas', component: EstadisticasComponent, canActivate: [authGuard]},
     { path: 'search', component: SearchingComponent },
     { path: 'juego', loadComponent: () => import('./components/juego/juego.component').then(j => j.JuegoComponent) },
-    { path: 'navbar', loadComponent: () => import("./components/navbar/navbar.component").then(n => n.NavbarComponent),
+    { path: 'navbar', loadComponent: () => import("./components/navbar/navbar.component").then(n => n.NavbarComponent),canActivate: [authGuard],
         children:[
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', loadComponent: () => import("./components/dashboard/dashboard.component").then(n => n.DashboardComponent),},
             { path: 'sensores', loadComponent: () => import("./components/sensores/sensores.component").then(n => n.SensoresComponent),},
             { path: 'me', loadComponent: () => import("./components/me/me.component").then(n => n.MeComponent),},
-            { path: 'paquetes', loadComponent: () => import("./components/paquetes/paquetes.component").then(n => n.PaquetesComponent),}
+            { path: 'paquetes', loadComponent: () => import("./components/paquetes/paquetes.component").then(n => n.PaquetesComponent),},
+            { path: 'mispaquetes', loadComponent: () => import("./components/mispaquetes/mispaquetes.component").then(n => n.MispaquetesComponent),},
+            { path: 'datosestaciones', loadComponent: () => import("./components/datosestaciones/datosestaciones.component").then(n => n.DatosestacionesComponent),},
         ]
     },
     { path: '**', component: NotfoundComponent},

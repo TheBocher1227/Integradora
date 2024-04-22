@@ -76,23 +76,27 @@ Route::group([
     Route::get('me', 'App\Http\Controllers\AuthController@me');
     
 
+
+    
+
+
+
+
     
 });
 
 
 
-Route::get('obtenerestaciones',[SensoresController::class,'obtenerestaciones']);
-Route::post('obtenerRegistrosPorEstacion/{id}',[SensoresController::class,'obtenerRegistrosPorEstacion']);
-Route::post('guardarRelacionEstacion',[SensoresController::class,'guardarRelacionEstacion']);
 Route::post('guardardatos',[SensoresController::class,'store']);
-
-
 
 Route::post('guardarValor',[SensoresController::class,'guardarValor']);
 
 Route::get('obtenervalores',[SensoresController::class,'obtenervalores']);
 
 
+Route::get('obtenerestaciones',[SensoresController::class,'obtenerestaciones']);
+Route::post('obtenerRegistrosPorEstacion/{id}',[SensoresController::class,'obtenerRegistrosPorEstacion']);
+Route::post('guardarRelacionEstacion',[SensoresController::class,'guardarRelacionEstacion']);
 
 
 

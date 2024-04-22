@@ -1,1 +1,1 @@
-export const api = 'https://apt-namely-buffalo.ngrok-free.app'
+export const api = 'http://192.168.100.170:8000'

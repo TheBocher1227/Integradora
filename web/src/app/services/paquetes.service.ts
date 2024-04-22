@@ -11,11 +11,8 @@ export class PaquetesService {
 
   constructor(private http: HttpClient) { }
 
-  obtenerEstaciones(token:string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get(`${this.dataURL}/obtenerestaciones`, { headers });
+  obtenerEstaciones(): Observable<any> {
+    return this.http.get(`${this.dataURL}/obtenerestaciones`);
   }
 
   obtenerRegistrosPorEstacion(id: number, token:string): Observable<any> {

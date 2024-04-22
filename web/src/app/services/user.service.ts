@@ -14,11 +14,9 @@ export class UserService {
   private dataURL = `${api}/api/user/me`
   private registroURL = `${api}/api/user/registrobatalla/`
 
-  getData(token:string): Observable<User> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`
-    });
-    return this.http.get<User>(this.dataURL , { headers})
+  getData(): Observable<User> {
+    
+    return this.http.get<User>(this.dataURL)
   }
 
   // getBatallas(): Observable<>

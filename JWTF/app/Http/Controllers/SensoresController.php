@@ -51,7 +51,7 @@ class SensoresController extends Controller
 
 
 
-    public function obtenerestaciones()
+    public function obtenerestaciones(Request $request)
     {
         $usuarioAutenticado = auth()->user()->id; 
         $estaciones = RelacionEstaciones::where('user_id', $usuarioAutenticado)->get();
@@ -59,16 +59,27 @@ class SensoresController extends Controller
     }
 
     public function guardarRelacionEstacion(Request $request)
-    {
-        $usuarioAutenticado = auth()->user()->id;
-        $idEstacion = $request->input('id_estacion'); 
-        $relacion = new RelacionEstaciones();
-        $relacion->user_id = $usuarioAutenticado;
-        $relacion->estacion_id = $idEstacion;
-        $relacion->save();
-    
-        return response()->json(['success' => true, 'message' => 'Relación creada correctamente.'],200);
+{
+    $usuarioAutenticado = auth()->user()->id;
+    $idEstacion = $request->input('id_estacion');
+
+    $relacionExistente = RelacionEstaciones::where('user_id', $usuarioAutenticado)
+        ->where('estacion_id', $idEstacion)
+        ->first();
+
+    if ($relacionExistente) {
+        return response()->json(['success' => false, 'message' => 'La relación ya existe.'], 400);
     }
+
+    $relacion = new RelacionEstaciones();
+    $relacion->user_id = $usuarioAutenticado;
+    $relacion->estacion_id = $idEstacion;
+    $relacion->save();
+
+    return response()->json(['success' => true, 'message' => 'Relación creada correctamente.'], 200);
+}
+
+
     public function obtenerRegistrosPorEstacion($id)
     {
         $datos = Sensores::all();
@@ -117,16 +128,20 @@ class SensoresController extends Controller
 
 
 
-public function guardarValor(Request $request)
-{
-    $value = $request->input('value') == 1 ? 1 : 0; 
-    $valor = new Value(); 
-    $valor->value = $value; 
-    $valor->save(); 
-    event(New obtenervalores($valor));
-    return response()->json(['success' => true, 'message' => 'Valor guardado correctamente.']);
-    
-}
+    public function guardarValor(Request $request)
+    {
+        $value = $request->input('value');
+        if ($value === '1' || $value === '0') {
+            $value = $value == '1' ? 1 : 0; 
+            $valor = new Value(); 
+            $valor->value = $value; 
+            $valor->save(); 
+            event(new obtenervalores($valor));
+            return response()->json(['success' => true, 'message' => 'Valor guardado correctamente.']);
+        } else {
+            return response()->json(['success' => false, 'message' => 'El valor debe ser 1 o 0.']);
+        }
+    }
 
 
 

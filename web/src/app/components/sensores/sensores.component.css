@@ -5,46 +5,37 @@
     background-position: center; 
 }
 
-
-
-
 .container {
-    position: absolute;
-    top: 40%;
-    left: 40%;
+    width: 90%;
+    margin: auto;
     text-align: center;
-    transform: translate(-50%, -50%);
     max-width: 800px;
     background-color: white;
     border-radius: 10px;
-    padding: 20px;
+    padding: 5vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid black; /* Esta línea añade un borde negro */
+    border: 2px solid black;
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Esto añade espacio entre las filas */
+    gap: 20px;
 }
 
 .row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Esto crea una cuadrícula de 3 columnas */
-    gap: 20px; /* Esto añade espacio entre las secciones */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
 }
 
 .outer-section {
     background-color: white;
     border-radius: 10px;
-    padding: 10px; /* Esta línea reduce el padding dentro del contenedor */
+    padding: 5vw;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid black; /* Esta línea añade un borde negro */
-    margin: 15px; /* Esta línea reduce el margen alrededor del contenedor */
-    
-    margin-left: 30px;
-    max-width: 430px; /* Esta línea limita la altura máxima del contenedor */
-    overflow: auto; /* Esta línea permite el desplazamiento si el contenido supera la altura máxima */
+    border: 2px solid black;
+    margin: 2vw;
+    max-width: 430px;
+    overflow: auto;
 }
-
-
 
 .section {
     display: flex;
@@ -53,16 +44,47 @@
 }
 
 .section img {
-    width: 50px; /* Ajusta esto al tamaño que necesites */
-    height: 50px; /* Ajusta esto al tamaño que necesites */
+    width: 20%;
+    height: auto;
 }
 
 .section h2 {
     margin: 0;
-    font-size: 20px; /* Ajusta esto al tamaño que necesites */
+    font-size: 2vw;
 }
 
 .section p {
     margin: 0;
-    font-size: 16px; /* Ajusta esto al tamaño que necesites */
+    font-size: 1.6vw;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .outer-section {
+        padding: 3vw;
+    }
+
+    .section h2 {
+        font-size: 3vw;
+    }
+
+    .section p {
+        font-size: 2.4vw;
+    }
+}
+
+.button-regresar {
+    background-color: red;
+    color: white;
+    border: 2px solid darkred;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button-regresar:hover {
+    background-color: darkred;
 }

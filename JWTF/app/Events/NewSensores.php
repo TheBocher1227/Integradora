@@ -25,6 +25,8 @@ class NewSensores implements ShouldBroadcast
     {
         $this->log = $log;
     }
+   
+   
 
     /**
      * Get the channels the event should broadcast on.
@@ -35,4 +37,12 @@ class NewSensores implements ShouldBroadcast
     {
         return new channel('sensores');
     }
+
+ public function broadcastAs()
+{
+    return 'sensores';
+}
+
+   
+   
 }

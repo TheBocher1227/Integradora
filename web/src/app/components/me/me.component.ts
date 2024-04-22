@@ -26,18 +26,17 @@ export class MeComponent implements OnInit {
 
 
     getUserData() {
-      const token = localStorage.getItem('token');
-      if (token) {
-        this.us.getData(token).subscribe(
+      
+        this.us.getData().subscribe(
           response => {
             this.user = response; // Accede a la propiedad 'user' de la respuesta
-            
+            console.log(response); //
           },
           (error) => {
             console.error(error);
           }
         );
-      }
+      
     }  
 
 }
